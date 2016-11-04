@@ -709,7 +709,11 @@
 			
 			if(contextMenu.children().length > 0)
 			{
-				contextMenu.css('left', elt.offset().left + 25 + 'px');
+				if ((elt.offset().left + 25 + elt.width * 2) > screen.width){
+				    contextMenu.css('left', screen.width - elt.width * 2 + 'px');
+				} else {
+				    contextMenu.css('left', elt.offset().left + 25 + 'px');
+				}
 				contextMenu.css('top', elt.offset().top + 25 + 'px');
 				contextMenu.show();
 				
